@@ -1,3 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Aniversário, Mãe!</title>
+  <style>
+    :root {
+      --primary-color: #e91e63;
+      --bg-color: #fff5f7;
+      --card-bg: #ffffff;
+      --text-color: #4a4a4a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Controle de Música */
+    .music-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .music-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 26px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.05);
+      background-color: #d81b60;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    header h1 {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #777;
+    }
+
+    /* Carta */
+    .message-card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-left: 6px solid var(--primary-color);
+      margin-bottom: 35px;
+    }
+
+    .message-card h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .message-card p {
+      font-size: 1.1rem;
+      white-space: pre-line;
+    }
+
+    /* Botão de Motivos */
+    .reasons-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 35px;
+    }
+
+    .reasons-card h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .reason-btn {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 64, 129, 0.3);
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .reason-btn:hover {
+      transform: scale(1.05);
+      background-color: #e91e63;
+    }
+
+    .reason-display {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff0f5;
+      border-radius: 12px;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      border: 2px dashed #f8bbd0;
+    }
+
+    /* Foto Grandona em Destaque */
+    .featured-photo-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      margin-bottom: 45px;
+      text-align: center;
+    }
+
+    .featured-photo-card h2 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .featured-photo-card img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .featured-photo-card .caption {
+      margin-top: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #555;
+    }
+
+    /* Seção de Vídeos */
+    .video-section {
+      margin-bottom: 45px;
+    }
+
+    .video-title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      font-size: 1.8rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .video-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 12px;
+      text-align: center;
+    }
+
+    .video-card video {
+      width: 100%;
+      max-height: 350px;
+      border-radius: 8px;
+      background-color: #000;
+    }
+
+    .video-card p {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    /* Galeria com 15 Fotos */
+    .gallery-title {
+      text-align: center;
+      margin: 30px 0 20px;
+      color: var(--primary-color);
+      font-size: 1.8rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .photo-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .photo-card p {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #555;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #888;
+      font-size: 0.95rem;
+    }
+
+    .heart {
+      font-size: 3rem;
+      animation: pulse 1.2s infinite;
+      display: inline-block;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="heart">❤️</div>
+      <h1>Feliz Aniversário, Mãe!</h1>
+      <p>Uma homenagem cheia de carinho para a mulher mais incrível da minha vida.</p>
+    </header>
+
+    <!-- Controle de Áudio -->
+    <div class="music-container">
+      <audio id="meuAudio" src="musica.mp3" loop></audio>
+      <button class="music-btn" onclick="toggleMusica()">
+        <span id="iconeMusica">🎵</span> <span id="textoMusica">Tocar Música Especial</span>
+      </button>
+    </div>
+
+    <!-- Carta -->
+    <section class="message-card">
+      <h2>Carta para Você 💌</h2>
+      <p>
+        Mãe, 
+
+        Escrevo esta mensagem para te lembrar o quanto você é essencial na minha vida. Obrigado por todos os abraços, pelos conselhos nas horas certas e por todo o amor incondicional que você me dá todos os dias.
+
+        Que o seu novo ano seja repleto de paz, saúde, sorrisos e momentos inesquecíveis. Te amo além das palavras!
+      </p>
+    </section>
+
+    <!-- Gerador de Motivos -->
+    <section class="reasons-card">
+      <h2>Por que eu te amo tanto? 💖</h2>
+      <button class="reason-btn" onclick="mostrarMotivo()">Clique para ver um motivo! ✨</button>
+      <div class="reason-display" id="textoMotivo">
+        Clique no botão acima para descobrir um motivo! 😊
+      </div>
+    </section>
+
+    <!-- Foto Grandona em Destaque -->
+    <section class="featured-photo-card">
+      <h2>Nossa Foto Especial ✨</h2>
+      <img src="foto-principal.jpeg" alt="Foto principal com a mãe">
+      <p class="caption">O nosso abraço favorito! ❤️</p>
+    </section>
+
+    <!-- Seção de Vídeos -->
+    <section class="video-section">
+      <h2 class="video-title">Nossos Vídeos Especiais 🎥</h2>
+      <div class="video-grid">
+        
+        <div class="video-card">
+          <video controls preload="metadata">
+            <source src="video1.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+          </video>
+          <p>Aquele momento engraçado! 😂</p>
+        </div>
+
+        <div class="video-card">
+          <video controls preload="metadata">
+            <source src="video2.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+          </video>
+          <p>Mensagem especial em vídeo 🎥❤️</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Galeria com 15 Fotos Pequenas -->
+    <h2 class="gallery-title">15 Momentos Inesquecíveis 📸</h2>
+    <section class="gallery">
+      
+      <div class="photo-card">
+        <img src="foto1.jpeg" alt="Foto 1">
+        <p>1. Sorriso inesquecível 😊</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto2.jpeg" alt="Foto 2">
+        <p>2. Aquele almoço especial 🍲</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto3.jpeg" alt="Foto 3">
+        <p>3. Viagem incrível ✈️</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto4.jpeg" alt="Foto 4">
+        <p>4. Dia de comemoração 🎉</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto5.jpeg" alt="Foto 5">
+        <p>5. Sempre no meu coração 💖</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto6.jpeg" alt="Foto 6">
+        <p>6. Momento de carinho 🥰</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto7.jpeg" alt="Foto 7">
+        <p>7. Passeio em família 🌳</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto8.jpeg" alt="Foto 8">
+        <p>8. Risadas compartilhadas 😂</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto9.jpeg" alt="Foto 9">
+        <p>9. Celebrando a vida ✨</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto10.jpeg" alt="Foto 10">
+        <p>10. Um dia inesquecível ☀️</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto11.jpeg" alt="Foto 11">
+        <p>11. Minha grande inspiração 🌟</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto12.jpeg" alt="Foto 12">
+        <p>12. Momentos simples e doces 🍰</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto13.jpeg" alt="Foto 13">
+        <p>13. Onde o amor transborda 💕</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto14.jpeg" alt="Foto 14">
+        <p>14. Cumplicidade eterna 🤝</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto15.jpeg" alt="Foto 15">
+        <p>15. Para sempre juntos! 📸</p>
+      </div>
+
+    </section>
+
+    <footer>
+      <p>Feito com todo o amor do mundo especialmente para você. 💖</p>
+    </footer>
+  </div>
+
+  <script>
+    function toggleMusica() {
+      const audio = document.getElementById('meuAudio');
+      const icone = document.getElementById('iconeMusica');
+      const texto = document.getElementById('textoMusica');
+
+      if (audio.paused) {
+        audio.play();
+        icone.textContent = '⏸️';
+        texto.textContent = 'Pausar Música';
+      } else {
+        audio.pause();
+        icone.textContent = '🎵';
+        texto.textContent = 'Tocar Música Especial';
+      }
+    }
+
+    const motivos = [
+      "Pelo seu abraço que resolve qualquer dia ruim. 🤗",
+      "Pelo seu sorriso que ilumina toda a casa. ✨",
+      "Por sempre me apoiar nos meus maiores sonhos. 🌟",
+      "Pela paciência infinita que você tem comigo. 💕",
+      "Porque você faz o melhor comida do mundo! 🍲",
+      "Pelos seus conselhos que sempre têm razão. 🧠",
+      "Por me ensinar o verdadeiro significado de amor incondicional. ❤️",
+      "Pelas risadas que só a gente dá juntos. 😂",
+      "Porque com você qualquer momento vira uma lembrança especial. 📸",
+      "Por ser a pessoa mais forte e guerreira que eu conheço. 💪",
+      "Porque seu carinho esquenta o coração. 🥰",
+      "Por sempre cuidar de mim com tanto carinho e atenção. 🌸",
+      "Porque você celebra minhas conquistas como se fossem suas. 🎉",
+      "Por ser minha melhor amiga e porto seguro. ⚓",
+      "Simplesmente por você existir e ser minha mãe! 💖"
+    ];
+
+    function mostrarMotivo() {
+      const indiceAleatorio = Math.floor(Math.random() * motivos.length);
+      document.getElementById('textoMotivo').textContent = motivos[indiceAleatorio];
+    }
+  </script>
+
+</body>
+</html>
+```eof
+
+Lembre-se de salvar os arquivos de imagem com a extensão `.jpeg` exatamente com os nomes correspondentes (`foto-principal.jpeg`, `foto1.jpeg` até `foto15.jpeg`).
+
+<ElicitationsGroup message="Precisa de mais alguma alteração ou ajuda para colocar a página no ar?">
+  <Elicitation label="Ajuda para subir os arquivos no GitHub Pages" query="Pode me lembrar o passo a passo para enviar o código atualizado, fotos e vídeos no GitHub Pages?"/>
+  <Elicitation label="Adicionar chuva de corações caindo" query="Pode me ajudar a adicionar também a chuva de corações caindo na página?"/>
+</ElicitationsGroup>
+    
 <style>
   .slideshow-container {
     position: relative;
