@@ -1,20 +1,181 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homenagem para a Melhor Mãe</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #ffeef0; color: #333; padding: 50px; }
-        h1 { color: #d63384; }
-        p { font-size: 1.2rem; line-height: 1.6; max-width: 600px; margin: 0 auto; }
-        .heart { font-size: 50px; color: #e63946; margin-top: 20px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Aniversário, Mãe!</title>
+  <style>
+    :root {
+      --primary-color: #e91e63;
+      --bg-color: #fff5f7;
+      --card-bg: #ffffff;
+      --text-color: #4a4a4a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0 20px;
+    }
+
+    header h1 {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #777;
+    }
+
+    /* Galeria de Fotos */
+    .gallery-title {
+      text-align: center;
+      margin: 30px 0 15px;
+      color: var(--primary-color);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .photo-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .photo-card p {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Mensagem */
+    .message-card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-left: 6px solid var(--primary-color);
+      margin-bottom: 40px;
+    }
+
+    .message-card h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .message-card p {
+      font-size: 1.1rem;
+      white-space: pre-line; /* Mantém as quebras de linha que você digitar */
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* Coração animado no topo */
+    .heart {
+      font-size: 3rem;
+      animation: pulse 1.2s infinite;
+      display: inline-block;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
 </head>
 <body>
-    <h1>Para a Melhor Mãe do Mundo ❤️</h1>
-    <p>Mãe, obrigado por todo o amor, carinho e apoio incondicional. Esta página é uma pequena forma de demonstrar o tamanho do meu amor por você!</p>
-    <div class="heart">💖</div>
+
+  <div class="container">
+    <header>
+      <div class="heart">❤️</div>
+      <h1>Feliz Aniversário, Mãe!</h1>
+      <p>Uma pequena homenagem para a pessoa mais especial do mundo.</p>
+    </header>
+
+    <!-- Seção do Recado -->
+    <section class="message-card">
+      <h2>Carta para você 💌</h2>
+      <p>
+        Mãe, 
+
+        Escrevo esta mensagem para te lembrar o quanto você é especial na minha vida. Obrigado por todas as risadas, pelos conselhos e por todo o amor incondicional que você me dá todos os dias.
+
+        Que o seu dia seja repleto de sorrisos e momentos alegres. Te amo infinitamente!
+      </p>
+    </section>
+
+    <!-- Galeria de Fotos -->
+    <h2 class="gallery-title">Nossos Momentos 📸</h2>
+    <section class="gallery">
+      
+      <div class="photo-card">
+        <!-- Subsditua o link abaixo pela sua foto -->
+        <img src="foto1.jpg" alt="Foto com a mãe">
+        <p>Momento especial ❤️</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto2.jpg" alt="Foto em família">
+        <p>Viagem inesquecível ✨</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="foto3.jpg" alt="Outra foto bacana">
+        <p>Sempre juntos! 😊</p>
+      </div>
+
+    </section>
+
+    <footer>
+      <p>Feito com todo o amor do mundo por mim. 💖</p>
+    </footer>
+  </div>
+
 </body>
 </html>
