@@ -513,28 +513,3 @@ Lembre-se de salvar os arquivos de imagem com a extensão `.jpeg` exatamente com
     from { opacity: 0.4; }
     to { opacity: 1; }
   }
-</style>
-
-<div class="slideshow-container">
-  <!-- Adicione suas 15 fotos aqui -->
-  <div class="mySlide" style="display: block;"><img src="foto1.jpg" alt="Foto 1"></div>
-  <div class="mySlide"><img src="foto2.jpg" alt="Foto 2"></div>
-  <div class="mySlide"><img src="foto3.jpg" alt="Foto 3"></div>
-  <!-- ... continuidades para as 15 fotos -->
-</div>
-
-<script>
-  let slideIndex = 0;
-  showSlides();
-
-  function showSlides() {
-    let slides = document.getElementsByClassName("mySlide");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }    
-    slides[slideIndex - 1].style.display = "block";  
-    setTimeout(showSlides, 3000); // Troca a cada 3 segundos
-  }
-</script>
