@@ -94,7 +94,7 @@
       white-space: pre-line;
     }
 
-    /* Seção do Botão de Motivos */
+    /* Botão de Motivos */
     .reasons-card {
       background: var(--card-bg);
       border-radius: 16px;
@@ -169,6 +169,47 @@
       margin-top: 12px;
       font-size: 1.1rem;
       font-weight: 600;
+      color: #555;
+    }
+
+    /* Seção de Vídeos Especial */
+    .video-section {
+      margin-bottom: 45px;
+    }
+
+    .video-title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      font-size: 1.8rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .video-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 12px;
+      text-align: center;
+    }
+
+    .video-card video {
+      width: 100%;
+      max-height: 350px;
+      border-radius: 8px;
+      background-color: #000;
+    }
+
+    .video-card p {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: 500;
       color: #555;
     }
 
@@ -281,6 +322,30 @@
       <p class="caption">O nosso abraço favorito! ❤️</p>
     </section>
 
+    <!-- Nova Seção de Vídeos -->
+    <section class="video-section">
+      <h2 class="video-title">Nossos Vídeos Especiais 🎥</h2>
+      <div class="video-grid">
+        
+        <div class="video-card">
+          <video controls preload="metadata">
+            <source src="video1.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+          </video>
+          <p>Aquele momento engraçado! 😂</p>
+        </div>
+
+        <div class="video-card">
+          <video controls preload="metadata">
+            <source src="video2.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+          </video>
+          <p>Mensagem especial em vídeo 🎥❤️</p>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Galeria com 15 Fotos Pequenas -->
     <h2 class="gallery-title">15 Momentos Inesquecíveis 📸</h2>
     <section class="gallery">
@@ -368,7 +433,6 @@
   </div>
 
   <script>
-    // Função da Música
     function toggleMusica() {
       const audio = document.getElementById('meuAudio');
       const icone = document.getElementById('iconeMusica');
@@ -385,7 +449,6 @@
       }
     }
 
-    // Lista de Motivos (Você pode alterar ou adicionar quantos quiser!)
     const motivos = [
       "Pelo seu abraço que resolve qualquer dia ruim. 🤗",
       "Pelo seu sorriso que ilumina toda a casa. ✨",
@@ -404,7 +467,6 @@
       "Simplesmente por você existir e ser minha mãe! 💖"
     ];
 
-    // Função para Sorteando os Motivos
     function mostrarMotivo() {
       const indiceAleatorio = Math.floor(Math.random() * motivos.length);
       document.getElementById('textoMotivo').textContent = motivos[indiceAleatorio];
@@ -413,3 +475,14 @@
 
 </body>
 </html>
+```eof
+
+### Como configurar os vídeos
+
+* **Nome do arquivo:** Salve os vídeos na mesma pasta do `index.html` renomeados como `video1.mp4` e `video2.mp4` (ou atualize os nomes dentro das tags `<source src="...">`).
+* **Dica sobre o tamanho do arquivo no GitHub:** O GitHub permite arquivos de até **100 MB**. Se os seus vídeos forem muito longos ou pesados, tente recortar ou comprimir para ficarem leves e carregarem rápido no celular dela!
+
+<ElicitationsGroup message="Tudo pronto para subir o site no ar?">
+  <Elicitation label="Ajuda para subir os arquivos no GitHub Pages" query="Pode me lembrar o passo a passo para enviar o código atualizado, fotos e vídeos no GitHub Pages?"/>
+  <Elicitation label="Adicionar efeito de chuva de corações caindo" query="Pode me ajudar a adicionar também a chuva de corações caindo na página?"/>
+</ElicitationsGroup>
