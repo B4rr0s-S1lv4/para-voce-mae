@@ -31,9 +31,36 @@
       margin: 0 auto;
     }
 
+    /* Botão de Música */
+    .music-container {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .music-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.05);
+      background-color: #d81b60;
+    }
+
     header {
       text-align: center;
-      padding: 40px 0 20px;
+      padding: 20px 0;
     }
 
     header h1 {
@@ -105,7 +132,7 @@
 
     .message-card p {
       font-size: 1.1rem;
-      white-space: pre-line; /* Mantém as quebras de linha que você digitar */
+      white-space: pre-line;
     }
 
     footer {
@@ -115,7 +142,6 @@
       font-size: 0.9rem;
     }
 
-    /* Coração animado no topo */
     .heart {
       font-size: 3rem;
       animation: pulse 1.2s infinite;
@@ -138,6 +164,14 @@
       <p>Uma pequena homenagem para a pessoa mais especial do mundo.</p>
     </header>
 
+    <!-- Controle de Áudio -->
+    <div class="music-container">
+      <audio id="meuAudio" src="musica.mp3" loop></audio>
+      <button class="music-btn" onclick="toggleMusica()">
+        <span id="iconeMusica">🎵</span> <span id="textoMusica">Tocar Música</span>
+      </button>
+    </div>
+
     <!-- Seção do Recado -->
     <section class="message-card">
       <h2>Carta para você 💌</h2>
@@ -153,29 +187,43 @@
     <!-- Galeria de Fotos -->
     <h2 class="gallery-title">Nossos Momentos 📸</h2>
     <section class="gallery">
-      
       <div class="photo-card">
-        <!-- Subsditua o link abaixo pela sua foto -->
         <img src="foto1.jpg" alt="Foto com a mãe">
         <p>Momento especial ❤️</p>
       </div>
-
       <div class="photo-card">
         <img src="foto2.jpg" alt="Foto em família">
         <p>Viagem inesquecível ✨</p>
       </div>
-
       <div class="photo-card">
         <img src="foto3.jpg" alt="Outra foto bacana">
         <p>Sempre juntos! 😊</p>
       </div>
-
     </section>
 
     <footer>
       <p>Feito com todo o amor do mundo por mim. 💖</p>
     </footer>
   </div>
+
+  <!-- Script que controla o Áudio -->
+  <script>
+    function toggleMusica() {
+      const audio = document.getElementById('meuAudio');
+      const icone = document.getElementById('iconeMusica');
+      const texto = document.getElementById('textoMusica');
+
+      if (audio.paused) {
+        audio.play();
+        icone.textContent = '⏸️';
+        texto.textContent = 'Pausar Música';
+      } else {
+        audio.pause();
+        icone.textContent = '🎵';
+        texto.textContent = 'Tocar Música';
+      }
+    }
+  </script>
 
 </body>
 </html>
