@@ -74,7 +74,7 @@
       color: #777;
     }
 
-    /* Mensagem / Carta */
+    /* Carta */
     .message-card {
       background: var(--card-bg);
       padding: 30px;
@@ -92,6 +92,54 @@
     .message-card p {
       font-size: 1.1rem;
       white-space: pre-line;
+    }
+
+    /* Seção do Botão de Motivos */
+    .reasons-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 35px;
+    }
+
+    .reasons-card h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .reason-btn {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 64, 129, 0.3);
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .reason-btn:hover {
+      transform: scale(1.05);
+      background-color: #e91e63;
+    }
+
+    .reason-display {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff0f5;
+      border-radius: 12px;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      border: 2px dashed #f8bbd0;
     }
 
     /* Foto Grandona em Destaque */
@@ -124,7 +172,7 @@
       color: #555;
     }
 
-    /* Galeria de Fotos Pequenas */
+    /* Galeria com 15 Fotos */
     .gallery-title {
       text-align: center;
       margin: 30px 0 20px;
@@ -205,7 +253,7 @@
       </button>
     </div>
 
-    <!-- Seção do Recado / Carta -->
+    <!-- Carta -->
     <section class="message-card">
       <h2>Carta para Você 💌</h2>
       <p>
@@ -215,6 +263,15 @@
 
         Que o seu novo ano seja repleto de paz, saúde, sorrisos e momentos inesquecíveis. Te amo além das palavras!
       </p>
+    </section>
+
+    <!-- Gerador de Motivos -->
+    <section class="reasons-card">
+      <h2>Por que eu te amo tanto? 💖</h2>
+      <button class="reason-btn" onclick="mostrarMotivo()">Clique para ver um motivo! ✨</button>
+      <div class="reason-display" id="textoMotivo">
+        Clique no botão acima para descobrir um motivo! 😊
+      </div>
     </section>
 
     <!-- Foto Grandona em Destaque -->
@@ -310,8 +367,8 @@
     </footer>
   </div>
 
-  <!-- Script que controla a Música -->
   <script>
+    // Função da Música
     function toggleMusica() {
       const audio = document.getElementById('meuAudio');
       const icone = document.getElementById('iconeMusica');
@@ -327,13 +384,32 @@
         texto.textContent = 'Tocar Música Especial';
       }
     }
+
+    // Lista de Motivos (Você pode alterar ou adicionar quantos quiser!)
+    const motivos = [
+      "Pelo seu abraço que resolve qualquer dia ruim. 🤗",
+      "Pelo seu sorriso que ilumina toda a casa. ✨",
+      "Por sempre me apoiar nos meus maiores sonhos. 🌟",
+      "Pela paciência infinita que você tem comigo. 💕",
+      "Porque você faz o melhor comida do mundo! 🍲",
+      "Pelos seus conselhos que sempre têm razão. 🧠",
+      "Por me ensinar o verdadeiro significado de amor incondicional. ❤️",
+      "Pelas risadas que só a gente dá juntos. 😂",
+      "Porque com você qualquer momento vira uma lembrança especial. 📸",
+      "Por ser a pessoa mais forte e guerreira que eu conheço. 💪",
+      "Porque seu carinho esquenta o coração. 🥰",
+      "Por sempre cuidar de mim com tanto carinho e atenção. 🌸",
+      "Porque você celebra minhas conquistas como se fossem suas. 🎉",
+      "Por ser minha melhor amiga e porto seguro. ⚓",
+      "Simplesmente por você existir e ser minha mãe! 💖"
+    ];
+
+    // Função para Sorteando os Motivos
+    function mostrarMotivo() {
+      const indiceAleatorio = Math.floor(Math.random() * motivos.length);
+      document.getElementById('textoMotivo').textContent = motivos[indiceAleatorio];
+    }
   </script>
 
 </body>
 </html>
-```eof
-
-O código agora possui:
-- **Foto em destaque**: local reservado para `foto-principal.jpg` logo após a carta, com moldura maior e legenda em destaque.
-- **Galeria com 15 espaços**: estruturada em grid responsivo para as fotos de `foto1.jpg` a `foto15.jpg`, com espaço para customizar cada legenda individualmente.
-- **Botão de áudio**: mantido no topo para tocar a música em MP3.
